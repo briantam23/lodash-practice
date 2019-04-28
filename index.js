@@ -112,7 +112,7 @@ console.log(_.sortedUniq(sortedArray)); */
 _.times(5, () => console.log('foo')) */
 
 
-// Fetch the name of the first pet from each owner
+/* // Fetch the name of the first pet from each owner
 const ownerArr = [{
     "owner": "Colin",
     "pets": [{"name":"dog1"}, {"name": "dog2"}]
@@ -125,4 +125,70 @@ const ownerArr = [{
 console.log(ownerArr.map(owner => owner.pets[0].name));
 
 // Lodash
-console.log(_.map(ownerArr, 'pets[0].name'));
+console.log(_.map(ownerArr, 'pets[0].name')); */
+
+/* _.random(20); // Return random number between 0 to 20
+_.random(15, 20, true); // Return random floating numbers between 15 and 20 */
+
+
+/* // Adding extend function to Object.prototype
+Object.prototype.extend = function(obj) {
+    for (var i in obj) {
+        if (obj.hasOwnProperty(i)) {
+            this[i] = obj[i];
+        }
+    }
+};
+
+var objA = {"name": "colin", "car": "suzuki"};
+var objB = {"name": "james", "age": 17};
+
+objA.extend(objB);
+objA; // {"name": "james", "age": 17, "car": "suzuki"};
+
+// Lodash
+console.log(_.assign(objA, objB)); */
+
+
+/* // Naive method: Remove an array of keys from object
+Object.prototype.remove = function(arr) {
+    var that = this;
+    arr.forEach(function(key){
+        delete(that[key]);
+    });
+};
+
+var objA = {"name": "colin", "car": "suzuki", "age": 17};
+
+objA.remove(['car', 'age']);
+objA; // {"name": "colin"}
+
+// Lodash
+console.log(_.omit(objA, ['car', 'age'])); // {"name": "colin"} */
+
+
+/* // Naive method: Returning a new object with selected properties 
+Object.prototype.pick = function(arr) {
+    var _this = this;
+    var obj = {};
+    arr.forEach(function(key){
+        obj[key] = _this[key];
+    });
+
+    return obj;
+};
+
+var objA = {"name": "colin", "car": "suzuki", "age": 17};
+
+var objB = objA.pick(['car', 'age']);
+// {"car": "suzuki", "age": 17}
+
+// Lodash
+console.log(_.pick(objA, ['car', 'age']));
+// {"car": "suzuki", "age": 17} */
+
+
+const luckyDraw = ["Colin", "John", "James", "Lily", "Mary"];
+console.log(_.sample(luckyDraw));
+// Lodash - Getting 2 random item
+const foo = _.sample(luckyDraw, 2); // ['John','Lily']
